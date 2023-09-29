@@ -4,10 +4,10 @@
 
 This was the third homework assignmment or "challenge" from my bootcamp. In this assignment we were told to make a random password generator using javascript that asked if the user wanted to include numbers and symbols to be included in the generated password. However due to personal matters I was not able to work on this homework assignment to my full extent. To make up for my lack of time I used chat gpt as a starting off point and reference for my work. I used the lines:   
 
-for (var i = 0; i < remainingLength; i++) {
+    for (var i = 0; i < remainingLength; i++) {
     var characterSet = getRandomCharacter([uppercaseChars, lowercaseChars]);
 
-if (includeNumbers && includeSpecialChars) {
+    if (includeNumbers && includeSpecialChars) {
       characterSet = getRandomCharacter([uppercaseChars, lowercaseChars, numberChars, specialChars]);
     } else if (includeNumbers) {
       characterSet = getRandomCharacter([uppercaseChars, lowercaseChars, numberChars]);
