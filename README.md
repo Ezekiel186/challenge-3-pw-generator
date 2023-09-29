@@ -16,14 +16,14 @@ if (includeNumbers && includeSpecialChars) {
     }
 
     password += getRandomCharacter(characterSet);
-  }
+    }
 
      // Shuffle the password to make it more random
      password = password.split('');
      for (var i = password.length - 1; i > 0; i--) {
     var j = Math.floor(Math.random() * (i + 1));
         [password[i], password[j]] = [password[j], password[i]];
-  }
+     }
 
   And:
 
@@ -60,12 +60,12 @@ if (includeNumbers && includeSpecialChars) {
     function randomNum() {
      var randomIndex = Math.floor(Math.random() * numbers.length);
      return numbers[randomIndex];
-}
+    }
 
     function randomSpecialChar() {
      var randomIndex = Math.floor(Math.random() * specialChars.length);
      return specialChars[randomIndex];
-}
+    }
 
 From what I have researched changing this much should avoid plagiarism. However if I am mistaken please correct me. This has been the toughest challenge I have done so far because of the lack of time I had working on it. Like the other challenges I have done, I left out my experimental code and commented them out.
 
