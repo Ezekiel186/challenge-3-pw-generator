@@ -22,7 +22,7 @@ if (includeNumbers && includeSpecialChars) {
   password = password.split('');
   for (var i = password.length - 1; i > 0; i--) {
     var j = Math.floor(Math.random() * (i + 1));
-    [password[i], password[j]] = [password[j], password[i]];
+    [password[i], password[j] = [password[j], password[i];
   }
 
   And:
