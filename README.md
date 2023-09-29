@@ -5,36 +5,36 @@
 This was the third homework assignmment or "challenge" from my bootcamp. In this assignment we were told to make a random password generator using javascript that asked if the user wanted to include numbers and symbols to be included in the generated password. However due to personal matters I was not able to work on this homework assignment to my full extent. To make up for my lack of time I used chat gpt as a starting off point and reference for my work. I used the lines:   
 
 for (var i = 0; i < remainingLength; i++) {
-    var characterSet = getRandomCharacter([uppercaseChars, lowercaseChars]);
+  var characterSet = getRandomCharacter([uppercaseChars, lowercaseChars]);
 
-if (includeNumbers && includeSpecialChars) {
-      characterSet = getRandomCharacter([uppercaseChars, lowercaseChars, numberChars, specialChars]);
-    } else if (includeNumbers) {
-      characterSet = getRandomCharacter([uppercaseChars, lowercaseChars, numberChars]);
-    } else if (includeSpecialChars) {
-      characterSet = getRandomCharacter([uppercaseChars, lowercaseChars, specialChars]);
-    }
+  if (includeNumbers && includeSpecialChars) {
+    characterSet = getRandomCharacter([uppercaseChars, lowercaseChars, numberChars, specialChars]);
+  } else if (includeNumbers) {
+    characterSet = getRandomCharacter([uppercaseChars, lowercaseChars, numberChars]);
+  } else if (includeSpecialChars) {
+    characterSet = getRandomCharacter([uppercaseChars, lowercaseChars, specialChars]);
+  }
 
-    password += getRandomCharacter(characterSet);
-    }
+  password += getRandomCharacter(characterSet);
+}
 
-     // Shuffle the password to make it more random
-     password = password.split('');
-     for (var i = password.length - 1; i > 0; i--) {
-    var j = Math.floor(Math.random() * (i + 1));
-        [password[i], password[j]] = [password[j], password[i]];
-     }
+// Shuffle the password to make it more random
+password = password.split('');
+for (var i = password.length - 1; i > 0; i--) {
+  var j = Math.floor(Math.random() * (i + 1));
+  [password[i], password[j]] = [password[j], password[i]];
+}
 
   And:
 
-  function random(array) {
+function random(array) {
   var randomIndex = Math.floor(Math.random() * array.length);
   return array[randomIndex];
-  }
+}
 
  From chatgpt to start my own lines of code that ended up looking like:
 
-    for (var i = 0; i < lengthLeft; i++) {
+  for (var i = 0; i < lengthLeft; i++) {
     var characters = randomLetter([letters]);
 
     if (includeNum && includeSplChar) {
@@ -45,27 +45,27 @@ if (includeNumbers && includeSpecialChars) {
       characters = randomLetter([letters]), randomSpecialChar([specialChars]);
     }
 
-     password += (characters);
-     }
+    password += (characters);
+  }
 
-    password = password.split('');
+  password = password.split('');
 
   And:
 
-    function randomLetter() {
-    var randomIndex = Math.floor(Math.random() * letters.length);
-    return letters[randomIndex];
-    }
+function randomLetter() {
+  var randomIndex = Math.floor(Math.random() * letters.length);
+  return letters[randomIndex];
+}
 
-    function randomNum() {
-     var randomIndex = Math.floor(Math.random() * numbers.length);
-     return numbers[randomIndex];
-    }
+function randomNum() {
+  var randomIndex = Math.floor(Math.random() * numbers.length);
+  return numbers[randomIndex];
+}
 
-    function randomSpecialChar() {
-     var randomIndex = Math.floor(Math.random() * specialChars.length);
-     return specialChars[randomIndex];
-    }
+function randomSpecialChar() {
+  var randomIndex = Math.floor(Math.random() * specialChars.length);
+  return specialChars[randomIndex];
+}
 
 From what I have researched changing this much should avoid plagiarism. However if I am mistaken please correct me. This has been the toughest challenge I have done so far because of the lack of time I had working on it. Like the other challenges I have done, I left out my experimental code and commented them out.
 
