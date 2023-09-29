@@ -9,14 +9,25 @@ var specialChars = '!@#$%^&*()_+[]{}|;:,.<>?';
 // var numbers = ["0","1","2","3","4","5","6","7","8","9"]
 // var password = 0
 // Write password to the #password input
-function random(array) {
-  var randomIndex = Math.floor(Math.random() * array.length);
-  return array[randomIndex];
+function randomLetter() {
+  var randomIndex = Math.floor(Math.random() * letters.length);
+  return letters[randomIndex];
   // password = letters=[Math.floor(Math.random() * 26)]
-    // return password
-    // // passwordLength = letters * passwordLength
-    //  return password
+  // return password
+  // // passwordLength = letters * passwordLength
+  //  return password
 }
+
+function randomNum() {
+  var randomIndex = Math.floor(Math.random() * numbers.length);
+  return numbers[randomIndex];
+}
+
+function randomSpecialChar() {
+  var randomIndex = Math.floor(Math.random() * specialChars.length);
+  return specialChars[randomIndex];
+}
+
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -42,7 +53,7 @@ function generatePassword() {
   // }
   var includeNum = confirm("Do you want numbers in the password?");
   // numbers = confirm("Numbers in the password?")
-  var includeSplChar = confirm("Do you want special Characters in the password?")
+  var includeSplChar = confirm("Do you want special characters in the password?")
   // passwordCharacters = confirm("Special Characters in the password?") {
   // if (confirm("Special Characters in the password?") == true)
   //   password + 7;
@@ -53,37 +64,33 @@ function generatePassword() {
   //}
   var password = '';
 
-  password += random(letters);
+  password += randomLetter(letters);
 
   if (includeNum) {
-    password += random(numbers)
+    password += randomNum(numbers)
   }
 
   if (includeSplChar) {
-    password += random(specialChars)
+    password += randomSpecialChar(specialChars)
   }
 
-  var remaininglength = passwordLength - password.length;
+  var lengthLeft = passwordLength - password.length;
 
-  for (var i = 0; i < remaininglength; i++) {
-    var characters = random([letters]);
+  for (var i = 0; i < lengthLeft; i++) {
+    var characters = randomLetter([letters]);
 
     if (includeNum && includeSplChar) {
-      characters = random([letters, numbers, specialChars]);
+      characters = randomLetter([letters]), randomNum([numbers]), randomSpecialChar([specialChars]);
     } else if (includeNum) {
-      characters = random([letters, numbers])
+      characters = randomLetter([letters]), randomNum([numbers]);
     } else if (includeSplChar) {
-      characters = random([letters, specialChars])
+      characters = randomLetter([letters]), randomSpecialChar([specialChars]);
     }
 
-    password += random(characters);
+    password += (characters);
   }
 
   password = password.split('');
-  for (var i = password.length - 1; i > 0; i--) {
-    var j = Math.floor(Math.random() * (i + 1));
-    [password[i], password[j]] = [password[j], password[i]];
-  }
 
   return password.join('');
 }
